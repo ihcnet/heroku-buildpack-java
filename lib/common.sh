@@ -54,6 +54,8 @@ is_supported_maven_version() {
   elif [ "$mavenVersion" = "3.2.3" ]; then
     return 0
   elif [ "$mavenVersion" = "3.1.1" ]; then
+    return 0  
+  elif [ "$mavenVersion" = "3.1.0" ]; then
     return 0
   elif [ "$mavenVersion" = "3.0.5" ]; then
     return 0

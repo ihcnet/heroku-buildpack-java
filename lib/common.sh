@@ -26,7 +26,7 @@ install_maven() {
 
   status_pending "Installing Maven ${mavenVersion}"
   if is_supported_maven_version ${mavenVersion}; then
-    if  [${mavenVersion} = "3.1.0"]; then
+    if  [ ${mavenVersion} = "3.1.0" ]; then
       mavenUrl="https://archive.apache.org/dist/maven/maven-3/3.1.0/binaries/apache-maven-3.1.0-bin.tar.gz"
     else
       mavenUrl="http://lang-jvm.s3.amazonaws.com/maven-${mavenVersion}.tar.gz"

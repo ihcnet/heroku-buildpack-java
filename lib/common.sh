@@ -28,10 +28,10 @@ install_maven() {
   if is_supported_maven_version ${mavenVersion}; then
     if  [ ${mavenVersion} = "3.1.0" ]; then
       mavenUrl="https://archive.apache.org/dist/maven/maven-3/3.1.0/binaries/apache-maven-3.1.0-bin.tar.gz"
-      download_maven ${mavenUrl} ${installDir} ${mavenHome}
+      download_maven_radical ${mavenUrl} ${installDir} ${mavenHome}
     else
       mavenUrl="http://lang-jvm.s3.amazonaws.com/maven-${mavenVersion}.tar.gz"
-      download_maven_radical ${mavenUrl} ${installDir} ${mavenHome}
+      download_maven ${mavenUrl} ${installDir} ${mavenHome}
     fi
    status_done
     
@@ -98,10 +98,8 @@ detect_maven_version() {
 get_app_system_value() {
   local file=${1?"No file specified"}
   local key=${2?"No key specified"}
-
   # escape for regex
   local escaped_key=$(echo $key | sed "s/\./\\\./g")
-
   [ -f $file ] && \
   grep -E ^$escaped_key[[:space:]=]+ $file | \
   sed -E -e "s/$escaped_key([\ \t]*=[\ \t]*|[\ \t]+)([A-Za-z0-9\.-]*).*/\2/g"

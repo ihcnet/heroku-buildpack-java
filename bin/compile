@@ -2,6 +2,7 @@
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
 # fail fast
+echo "Something"
 set -e
 
 BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
